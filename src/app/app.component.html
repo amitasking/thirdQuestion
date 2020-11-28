@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+   
+  <title></title>
+</head>
+<body>
+
+  
+  <div class="container">
+    <form [formGroup]="myForm" (ngSubmit) = "onSubmit()">
+    <div class="row">
+        <div class="input-field col s6">
+            <input id="phn" placeholder="enter phone number" name="phn" formControlName = "phoneNo">
+           <button class="btn-floating  waves-effect waves-light red" (click) = "addalternatePhoneNo()" type="button">+</button>
+        </div>
+            
+
+
+    </div>
+    
+    <div class="row">
+      <div class="input-field col s6">
+                  <div formArrayName = "alternatePhoneNo" *ngFor = "let phn of alternatePhoneNo.controls; let i = index">
+                    <input placeholder="enter alternate number" [formControlName] = "i">
+                </div>
+            </div>
+         
+    </div>
+            
+
+
+    
+    
+
+ <br>
+ <br>
+    <button class="btn" type="submit">submit</button>
+
+  </form>
+  </div>
+
+
+<hr>
+<p>check console for output</p>
+</body>
+</html>
